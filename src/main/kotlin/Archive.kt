@@ -4,7 +4,7 @@ class Archive(var name: String): TheList
     var notes: MutableList<Note> = mutableListOf()
 
     override fun show () {
-        println("Архив " + name)
+        println("Архив: \"" + name + "\"")
         println("Cписок заметок:")
         println("0. Создать новую заметку")
         var i = 1
@@ -12,6 +12,7 @@ class Archive(var name: String): TheList
             println((i++).toString()+". "+ note.name)
         }
         println(i.toString() + ". Выход")
+        println("Введите номер пункта меню...")
 
         MenuHandler.handle(i, this)
     }

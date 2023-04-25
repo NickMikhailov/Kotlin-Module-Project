@@ -4,13 +4,15 @@ object NoteBook: TheList
     var noteBook: MutableList<Archive> = mutableListOf()
 
     override fun show() {
-        println("Cписок архивов")
+        println("Cписок архивов:")
         println("0. Создать новый архив")
         var i = 1
         for (archive in noteBook) {
             println((i++).toString() +". "+ archive.name)
         }
         println(i.toString() + ". Выход")
+        println("Введите номер пункта меню...")
+
         MenuHandler.handle(i, this)
     }
 

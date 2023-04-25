@@ -9,7 +9,7 @@ object MenuHandler {
                 if (input in 0..i) return input
                 else println ("Такого пункта в меню нет. Введите номер пункта меню:")
             } catch (e: Exception) {
-                println("Вы ввели не цифру. Введите номер пункта меню.")
+                println("Вы не ввели число. Введите номер пункта меню.")
             }
         }
     }
