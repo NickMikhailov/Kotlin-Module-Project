@@ -6,14 +6,13 @@ object NoteBook: TheList
     override fun show() {
         println("Cписок архивов:")
         println("0. Создать новый архив")
-        var i = 1
-        for (archive in noteBook) {
-            println((i++).toString() +". "+ archive.name)
+        noteBook.forEachIndexed { index, archive ->
+            println("${(index + 1).toString()}. ${archive.name}")
         }
-        println(i.toString() + ". Выход")
+        println((noteBook.size + 1).toString() + ". Выход")
         println("Введите номер пункта меню...")
 
-        MenuHandler.handle(i, this)
+        MenuHandler.handle(noteBook.size + 1, this)
     }
 
     override fun addNew(){

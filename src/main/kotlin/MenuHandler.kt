@@ -2,11 +2,11 @@ import java.lang.Exception
 
 object MenuHandler {
 
-     private fun input(i: Int): Int {
+     private fun input(menuSize: Int): Int {
         while (true){
             try {
                 val input = readln().toInt()
-                if (input in 0..i) return input
+                if (input in 0..menuSize) return input
                 else println ("Такого пункта в меню нет. Введите номер пункта меню:")
             } catch (e: Exception) {
                 println("Вы не ввели число. Введите номер пункта меню.")
@@ -14,12 +14,11 @@ object MenuHandler {
         }
     }
 
-    fun handle(i: Int, theList: TheList)
+    fun handle(menuSize: Int, theList: TheList)
     {
-        val selection = input(i)
-        when(selection){
+        when(val selection = input(menuSize)){
             0 -> theList.addNew()
-            in 1..(i-1) -> theList[selection-1].show()
+            in 1 until menuSize -> theList[selection-1].show()
             else -> return
         }
         theList.show()

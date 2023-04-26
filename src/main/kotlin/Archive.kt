@@ -7,14 +7,13 @@ class Archive(var name: String): TheList
         println("Архив: \"" + name + "\"")
         println("Cписок заметок:")
         println("0. Создать новую заметку")
-        var i = 1
-        for (note in notes) {
-            println((i++).toString()+". "+ note.name)
+        notes.forEachIndexed { index, note ->
+            println("${(index+1).toString()}. ${note.name}")
         }
-        println(i.toString() + ". Выход")
+        println((notes.size+1).toString() + ". Выход")
         println("Введите номер пункта меню...")
 
-        MenuHandler.handle(i, this)
+        MenuHandler.handle(notes.size+1, this)
     }
 
 
